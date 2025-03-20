@@ -1,6 +1,10 @@
-import { useState } from "react"
+import { useState, useContext } from "react";
+import { ProjectContext } from "../store/project-context";
 
-export default function NewTask({ onAdd }) {
+export default function NewTask() {
+  const {
+    handleAddTask
+  } = useContext(ProjectContext);
 
   const [enteredTask, setEnteredTask] = useState('');
   const handleChange = (event) => {
@@ -12,7 +16,7 @@ export default function NewTask({ onAdd }) {
       return // dont allow empty task
     }
     setEnteredTask(''); // reset afer adding task
-    onAdd(enteredTask)
+    handleAddTask(enteredTask)
   }
 
   return (

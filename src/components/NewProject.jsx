@@ -17,12 +17,7 @@ export default function NewProject({ onSave, onCancel }) {
 			modalRef.current.open();
 			return;
 		}
-
-		onSave({
-			title,
-			description,
-			dueDate
-		})
+		onSave({ title, description, dueDate })
 	}
 
 	return (
